@@ -1,0 +1,25 @@
+sudo apt update -y && sudo apt install golang
+#in your *rc profile
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+mkdir -p $GOPATH/src $GOPATH/pkg $GOPATH/bin
+
+#in any dir go mod init <modulepath> -> makes go.mod file with dependency requirements and go version
+
+#install debugger
+https://github.com/golang/vscode-go/blob/master/docs/debugging.md
+
+#install linter
+# binary will be $(go env GOPATH)/bin/golangci-lint
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.31.0
+
+golangci-lint --version
+
+Writing a test is just like writing a function, with a few rules
+It needs to be in a file with a name like xxx_test.go
+The test function must start with the word Test
+The test function takes one argument only t *testing.T
+
+#install extra tools
+go get -u golang.org/x/tools/...
