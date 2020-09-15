@@ -1,7 +1,7 @@
 https://github.com/phiratio/update-golang
 #in your *rc profile
-export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:$(go env GOPATH)/bin"
 export GO111MODULE=on
 
 #in any dir go mod init <modulepath> -> makes go.mod file with dependency requirements and go version
