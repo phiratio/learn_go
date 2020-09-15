@@ -1,9 +1,8 @@
-sudo apt update -y && sudo apt install golang
+https://github.com/phiratio/update-golang
 #in your *rc profile
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-mkdir -p $GOPATH/src $GOPATH/pkg $GOPATH/bin
+export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH=$PATH:/usr/local/go/bin
+export GO111MODULE=on
 
 #in any dir go mod init <modulepath> -> makes go.mod file with dependency requirements and go version
 
