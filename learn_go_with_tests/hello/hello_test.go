@@ -3,7 +3,6 @@ package main
 import "testing"
 
 func TestHello(t *testing.T) {
-
 	assertCorrectMessage := func(t *testing.T, got, want string) {
 		// t.Helper() is needed to tell the test suite that this method is a helper.
 		// By doing this when it fails the line number reported will be in our function call rather than inside our test helper.
