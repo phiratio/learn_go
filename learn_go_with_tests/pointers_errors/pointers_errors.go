@@ -27,7 +27,7 @@ type Wallet struct {
 // wallet  =>  0xc0000 => "balance is here"
 // operates with pointer of Wallet struct type
 func (w *Wallet) Deposit(amount Bitcoin) {
-	fmt.Printf("address of balance in wallet is %v \n", &w.balance) // get the data this pointer has
+	fmt.Printf("address of balance in wallet is %v \n", &w.balance) // get the pointer
 	w.balance += amount
 }
 
