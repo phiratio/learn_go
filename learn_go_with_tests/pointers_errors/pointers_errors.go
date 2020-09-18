@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Bitcoin int
 
@@ -9,7 +12,7 @@ func (b Bitcoin) String() string {
 	return fmt.Sprintf("%d BTC", b)
 }
 
-// this interface is defined in the fmt package and
+//  this interface is defined in the fmt package and
 // lets you define how your type is printed when used with the %s format string in prints.
 // https://golang.org/pkg/fmt/#Stringer
 //type Stringer interface {
@@ -28,8 +31,14 @@ func (w *Wallet) Deposit(amount Bitcoin) {
 	w.balance += amount
 }
 
-func (w *Wallet) Withdraw(amount Bitcoin) {
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+
+func (w *Wallet) Withdraw(amount Bitcoin) error {
+	if amount > w.balance {
+		return ErrInsufficientFunds
+	}
 	w.balance -= amount
+	return nil
 }
 
 func (w *Wallet) Balance() Bitcoin {
